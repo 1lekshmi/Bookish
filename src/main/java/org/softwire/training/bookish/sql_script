@@ -1,0 +1,28 @@
+CREATE DATABASE bookish;
+USE bookish;
+CREATE TABLE  Books (
+    bookId INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255),
+    author varchar(255),
+    isbn varchar(255),
+    genre varchar(255),
+    numberOfCopiesAvailable INTEGER
+);
+
+CREATE TABLE Transactions(
+    transactionId INTEGER PRIMARY KEY AUTO_INCREMENT,
+    userId INTEGER,
+    bookId INTEGER,
+    FOREIGN KEY (userId) REFERENCES User(userId),
+    FOREIGN KEY (bookId) REFERENCES Books(bookId),
+    borrowedDate DATE,
+    dueDate DATE,
+    returnDate DATE,
+    overdue BOOLEAN
+);
+
+CREATE TABLE User(
+    userId INTEGER PRIMARY KEY AUTO_INCREMENT,
+    firstName varchar(255),
+    lastName varchar(255)
+);
