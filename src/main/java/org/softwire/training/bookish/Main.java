@@ -3,8 +3,10 @@ package org.softwire.training.bookish;
 import org.jdbi.v3.core.Jdbi;
 import org.softwire.training.bookish.models.database.Book;
 
+import javax.sound.midi.Soundbank;
 import java.sql.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Main {
@@ -47,18 +49,18 @@ public class Main {
 
         Jdbi jdbi = Jdbi.create(connectionString);
         String query = "SELECT name FROM Books";
-        List<String> bookList = jdbi.withHandle(handle -> handle.createQuery(query)
-               .mapTo(String.class)
-               .list());
-        bookList.forEach(System.out::println);
+//        List<String> bookList = jdbi.withHandle(handle -> handle.createQuery(query)
+//               .mapTo(String.class)
+//               .list());
+//        bookList.forEach(System.out::println);
 
-//        List<Book> bookList = jdbi.withHandle(handle -> {
-//            return handle.createQuery(query)
-//                    .mapToBean(Book.class)
-//                    .list();
-//        });
-//        System.out.println(bookList);
+        List<Book> bookList = jdbi.withHandle(handle -> {
+            return handle.createQuery(query)
+                    .mapToBean(Book.class)
+                    .list();
+        });
 
+        bookList.stream().map(Book::getName).forEach(System.out::println);
 
 
 
