@@ -16,37 +16,100 @@
         <div class="container">
             <h2>List of all the books</h2>
 
-            <div class="book-list">
-                <div th:each="book : ${model.book}" class="book">
-                    <img th:title="${book.name}"/>
+            <div>
+                <table  class="book-table">
+                    <tr class="book-header">
+                        <td>Book Name</td>
+                        <td>Author</td>
+                        <td>Genre</td>
+                    </tr>
 
-<!--                    <img th:src="${book.name}" th:title="${technology.name}" />-->
-
-<!--                    <a th:href="${'/about/delete-technology?technologyId=' + technology.id}" class="delete-button">delete</a>-->
-                </div>
+                    <tr th:each="book :${model.book}" class="book-row">
+                        <td th:text="${book.name}"></td>
+                        <td th:text="${book.author}"></td>
+                        <td th:text="${book.genre}"></td>
+                    </tr>
+                </table>
             </div>
 
-<!--            <h2>Add a technology:</h2>-->
-<!--            <form th:action="@{/about/add-technology}" method="post">-->
-<!--                <div class="add-tech-row">-->
-<!--                    <label>-->
-<!--                        <span>Name: </span>-->
-<!--                        <input type="text" name="name">-->
-<!--                    </label>-->
-<!--                </div>-->
-<!--                <div class="add-tech-row">-->
-<!--                    <label>-->
-<!--                        <span>Logo URL: </span>-->
-<!--                        <input type="text" name="logoUrl">-->
-<!--                    </label>-->
-<!--                </div>-->
-<!--                <div class="add-tech-row">-->
-<!--                    <span>&lt;!&ndash; spacer &ndash;&gt;</span>-->
-<!--                    <input type="submit" value="Add technology" />-->
-<!--                </div>-->
-<!--            </form>-->
+            <h2> Add a new book:</h2>
+            <form th:action="@{/books/add-new-book}" method="post">
+                <div class = "add-book-row">
+                    <label>
+                        <span> Book Name: </span>
+                        <input type="text" name="name">
+                    </label>
+                </div>
+                <div class = "add-book-row">
+                    <label>
+                        <span> Author: </span>
+                        <input type="text" name="author">
+                    </label>
+                </div>
+                <div class = "add-book-row">
+                    <label>
+                        <span> ISBN: </span>
+                        <input type="text" name="isbn">
+                    </label>
+                </div>
+                <div class = "add-book-row">
+                    <label>
+                        <span> Genre: </span>
+                        <input type="text" name="genre">
+                    </label>
+                </div>
+                <div class="add-book-row">
+                    <span><!-- spacer --></span>
+                    <input type="submit" value="Add Book">
+                </div>
+            </form>
+
+            <h2> Add a copy: </h2>
+            <form th:action="@{/books/add-book-copy}" method="post">
+                <div class="add-book-row">
+                    <label>
+                        <span> Name: </span>
+                        <input type="text" name="name">
+                    </label>
+                </div>
+                <div class="add-book-row">
+                    <label>
+                        <span>Author: </span>
+                        <input type="text" name="author">
+                    </label>
+                </div>
+                <div class="add-book-row">
+                    <span></span>
+                    <input type="submit" value="Add a copy">
+<!--                    <a th:href="${'/books/add-book-copy?bookName=' + name +'author=' + author}" class="add-copy-button">Add a copy</a>-->
+                </div>
+            </form>
+
+            <h2> Delete a copy: </h2>
+            <form th:action="@{/books/delete-book-copy}" method="post">
+                <div class="add-book-row">
+                    <label>
+                        <span> Name: </span>
+                        <input type="text" name="name">
+                    </label>
+                </div>
+                <div class="add-book-row">
+                    <label>
+                        <span>Author: </span>
+                        <input type="text" name="author">
+                    </label>
+                </div>
+                <div class="add-book-row">
+                    <span></span>
+                    <input type="submit" value="Delete a copy">
+                    <!--                    <a th:href="${'/books/add-book-copy?bookName=' + name +'author=' + author}" class="add-copy-button">Add a copy</a>-->
+                </div>
+            </form>
+
+
+
+
+
         </div>
-
-
     </body>
 </html>

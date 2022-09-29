@@ -57,3 +57,37 @@ VALUES
 ALTER TABLE Books ADD totalNumberOfCopies INTEGER;
 ALTER TABLE Books ALTER numberOfCopiesAvailable SET DEFAULT 1;
 ALTER TABLE Books ALTER totalNumberOfCopies SET DEFAULT 1;
+
+
+SELECT name,author FROM Books ORDER BY author;
+SELECT name,author FROM Books ORDER BY author DESC;
+INSERT INTO Books(name,author) VALUES ('The Theory Of Everything', 'Stephen Hawking');
+SELECT name,author FROM Books ORDER BY author DESC;
+SELECT name,author FROM Books ORDER BY author,name;
+SELECT name,author,numberOfCopiesAvailable,totalNumberOfCopies FROM Books;
+ALTER TABLE Books ALTER numberOfCopiesAvailable SET DEFAULT 1;
+ALTER TABLE Books ALTER totalNumberOfCopies SET DEFAULT 1;
+SELECT name,author,numberOfCopiesAvailable,totalNumberOfCopies FROM Books;
+INSERT INTO Books(name,author) VALUES ('My Sh*t Therapist', 'Michelle Thomas');
+SELECT name,author,numberOfCopiesAvailable,totalNumberOfCopies FROM Books;
+UPDATE Books
+    SET numberOfCopiesAvailable = numberOfCopiesAvailable+1, totalNumberOfCopies = totalNumberOfCopies+1
+    WHERE name = 'My Sh*t Therapist' AND author = 'Michelle Thomas';
+SELECT name,author,numberOfCopiesAvailable,totalNumberOfCopies FROM Books;
+SELECT name,author FROM Books ORDER BY author,name;
+INSERT INTO Books(name,author) VALUES ('Hidden Figures', 'Margot Lee Shetterly');
+SELECT name,author FROM Books ORDER BY author,name;
+UPDATE Books SET genre = 'Popular Science' WHERE name = 'The Theory Of Everything';
+UPDATE Books SET genre = 'Non-Fiction' WHERE name = 'My Sh*t Therapist';
+UPDATE Books SET genre = 'Non-Fiction' WHERE name = 'Hidden Fighures';
+UPDATE Books SET genre = 'Non-Fiction' WHERE name = 'Hidden Figures';
+SELECT name,author,genre FROM Books;
+UPDATE Books SET numberOfCopiesAvailable = 1 WHERE name = 'The Theory Of Everything';
+UPDATE Books SET totalNumberOfCopies = 1 WHERE name = 'The Theory Of Everything';
+UPDATE Books SET totalNumberOfCopies = 1 WHERE name = 'Building a Second Brain';
+UPDATE Books SET totalNumberOfCopies = 2 WHERE name = 'A Brief History Of Time';
+UPDATE Books SET isbn = '9780553176988' WHERE name = 'A Brief History Of Time';
+UPDATE Books SET isbn = '9781800815490' WHERE name = 'Building a Second Brain';
+UPDATE Books SET isbn = '9788179927939' WHERE name = 'The Theory Of Everything';
+UPDATE Books SET isbn = '9781788701907' WHERE name = 'My Sh*t Therapist';
+UPDATE Books SET isbn = '9780008201326' WHERE name = 'Hidden Figures';

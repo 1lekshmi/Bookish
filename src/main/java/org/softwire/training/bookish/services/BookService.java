@@ -10,7 +10,7 @@ public class BookService extends DatabaseService{
 
     public List<Book> getAllBooks(){
         return jdbi.withHandle(handle ->
-            handle.createQuery("SELECT name,author FROM Books ORDER BY author,name")
+            handle.createQuery("SELECT name,author,genre FROM Books ORDER BY author,name")
                     .mapToBean(Book.class)
                     .list()
         );
@@ -30,6 +30,15 @@ public class BookService extends DatabaseService{
     public void addCopy(Book book){
         jdbi.useHandle(handle ->
                 handle.createUpdate("UPDATE Books SET numberOfCopiesAvailable = numberOfCopiesAvailable+1, totalNumberOfCopies = totalNumberOfCopies+1 WHERE name = :name AND author = :author")
+                        .bind("name", book.getName())
+                        .bind("author", book.getAuthor())
+                        .execute()
+        );
+    }
+
+    public void deleteCopy(Book book){
+        jdbi.useHandle(handle ->
+                handle.createUpdate("UPDATE Books SET numberOfCopiesAvailable = numberOfCopiesAvailable-1, totalNumberOfCopies = totalNumberOfCopies-1 WHERE name = :name AND author = :author")
                         .bind("name", book.getName())
                         .bind("author", book.getAuthor())
                         .execute()
