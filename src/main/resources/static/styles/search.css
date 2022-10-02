@@ -1,0 +1,38 @@
+h2 {
+    font-family: "Segoe UI", sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+.search-book-table {
+    width: 100%;
+    max-width: 800px;
+    display: table;
+    border: 1px solid black;
+    border-collapse: collapse;
+    /*align-items: center;*/
+}
+
+.search-book-row {
+    width: fit-content;
+    border-bottom: 1px solid black;
+    /*border-left: 10px solid black;*/
+    display: table-row;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+}
+
+.search-book-header{
+    width: fit-content;
+    display: table-row;
+    border-bottom: 1px solid black;
+    align-items: center;
+    background-color: #D0C4C4;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+td{
+    border-right: 1px solid black;
+}

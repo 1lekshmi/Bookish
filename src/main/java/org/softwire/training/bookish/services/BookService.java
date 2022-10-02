@@ -45,4 +45,18 @@ public class BookService extends DatabaseService{
         );
     }
 
+//    public List<Book> search(Book book){
+//        return jdbi.withHandle(handle ->
+//                handle.createQuery("SELECT name,author,genre FROM Books WHERE name LIKE :name")
+//                        .bind("name", book.getName())
+//                        .mapToBean(Book.class)
+//                        .list()
+//                );
+//         jdbi.useHandle(handle ->
+//                handle.createUpdate("SELECT name,author,genre FROM Books WHERE name LIKE %:name%")
+//                        .bind("name",book.getName())
+//                        .execute()
+//                );
+//    }
+
 }

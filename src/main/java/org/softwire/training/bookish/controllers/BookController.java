@@ -59,4 +59,16 @@ public class BookController {
         return new RedirectView("/books");
     }
 
+//    @RequestMapping("/search")
+//    RedirectView search(@ModelAttribute Book book){
+//        bookService.search(book);
+//        return new RedirectView("/books");
+//    }
+
+//    @RequestMapping("/search")
+//    RedirectView searchBook(){
+//        return new RedirectView("/search");
+//    }
+
+
 }

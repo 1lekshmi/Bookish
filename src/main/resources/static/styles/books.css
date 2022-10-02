@@ -61,21 +61,29 @@ td{
 }
 
 .add-copy-button{
-    /*margin-top: 10px;*/
-
-    /*background-color: transparent;*/
-    /*border: 1px solid dodgerblue;*/
-    /*border-radius: 15px;*/
-    /*padding: 5px 15px;*/
-
-    /*font-family: "Segoe UI", sans-serif;*/
-    /*font-size: 14px;*/
-    /*color: white;*/
-    /*text-decoration: none;*/
-    /*opacity: 0.5;*/
     background-color: transparent;
     border: 1px solid dodgerblue;
     border-radius: 15px;
     padding: 5px 15px;
 
+}
+.search-bar label {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-bar span {
+    min-width: 100px;
+    display: inline-block;
+}
+
+.search-bar input[type="text"] {
+    flex-grow: 1;
+}
+
+.search-bar input[type="submit"] {
+    background-color: transparent;
+    border: 1px solid dodgerblue;
+    border-radius: 15px;
+    padding: 5px 15px;
 }
