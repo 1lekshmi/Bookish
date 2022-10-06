@@ -4,3 +4,4 @@
 target/
 
 dependency-reduced-pom.xml
+src/main/java/org/softwire/training/bookish/sql_script.txt
